@@ -296,6 +296,11 @@
             color: white;
         }
 
+        .btn-warning {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+        }
+
         .btn-danger {
             background: linear-gradient(135deg, #991b1b, #7f1d1d);
             color: white;
@@ -630,6 +635,65 @@
             gap: 1.5rem;
         }
 
+        /* Edit Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(30px);
+            border-radius: 1.25rem;
+            padding: 2.5rem;
+            box-shadow: 
+                0 30px 80px rgba(220, 38, 38, 0.3),
+                0 0 0 1px rgba(220, 38, 38, 0.5);
+            border: 2px solid rgba(220, 38, 38, 0.3);
+            width: 90%;
+            max-width: 500px;
+            animation: scaleIn 0.3s ease-out;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: white;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: #9ca3af;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: var(--primary-color);
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .navbar-container {
@@ -680,6 +744,11 @@
             th, td {
                 padding: 0.875rem 1rem;
                 font-size: 0.875rem;
+            }
+
+            .modal-content {
+                padding: 2rem 1.5rem;
+                margin: 1rem;
             }
         }
 
@@ -952,6 +1021,48 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- Edit Part Modal -->
+    <div id="editPartModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Parça Düzenle</h3>
+                <button class="modal-close" onclick="closeEditModal()">×</button>
+            </div>
+            <div id="editPartAlert" class="alert"></div>
+            <form id="editPartForm">
+                <input type="hidden" id="editPartKey">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="editPartBrand">Marka</label>
+                        <input type="text" id="editPartBrand" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editPartModel">Model</label>
+                        <input type="text" id="editPartModel" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="editPartName">Parça Adı</label>
+                    <input type="text" id="editPartName" required>
+                </div>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="editPartPriceOriginal">Orijinal Fiyat (₺)</label>
+                        <input type="number" id="editPartPriceOriginal" step="0.01">
+                    </div>
+                    <div class="form-group">
+                        <label for="editPartPriceEquivalent">Muadil Fiyat (₺)</label>
+                        <input type="number" id="editPartPriceEquivalent" step="0.01" required>
+                    </div>
+                </div>
+                <div class="form-grid">
+                    <button type="submit" class="btn btn-success">✓ Kaydet</button>
+                    <button type="button" class="btn btn-danger" onclick="closeEditModal()">İptal</button>
+                </div>
+            </form>
         </div>
     </div>
 
@@ -1231,6 +1342,7 @@
                         <td>${originalPrice}</td>
                         <td>${priceEquivalent.toFixed(2)} ₺</td>
                         <td>
+                            <button class="btn btn-warning btn-small" onclick="editPart('${child.key}')">✏️ Düzenle</button>
                             <button class="btn btn-danger btn-small" onclick="deletePart('${child.key}')">🗑️ Sil</button>
                         </td>
                     `;
@@ -1262,6 +1374,63 @@
                 });
             });
         }
+
+        // Edit Part
+        function editPart(key) {
+            database.ref('parts/' + key).once('value', snapshot => {
+                const part = snapshot.val();
+                if (part) {
+                    document.getElementById('editPartKey').value = key;
+                    document.getElementById('editPartBrand').value = part.brand;
+                    document.getElementById('editPartModel').value = part.model;
+                    document.getElementById('editPartName').value = part.name;
+                    document.getElementById('editPartPriceOriginal').value = part.priceOriginal || '';
+                    document.getElementById('editPartPriceEquivalent').value = part.priceEquivalent || part.price || '';
+                    
+                    document.getElementById('editPartModal').classList.add('show');
+                }
+            });
+        }
+
+        // Close Edit Modal
+        function closeEditModal() {
+            document.getElementById('editPartModal').classList.remove('show');
+            document.getElementById('editPartForm').reset();
+        }
+
+        // Save Edited Part
+        document.getElementById('editPartForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const key = document.getElementById('editPartKey').value;
+            const brand = document.getElementById('editPartBrand').value;
+            const model = document.getElementById('editPartModel').value;
+            const name = document.getElementById('editPartName').value;
+            const priceOriginal = parseFloat(document.getElementById('editPartPriceOriginal').value) || null;
+            const priceEquivalent = parseFloat(document.getElementById('editPartPriceEquivalent').value);
+
+            try {
+                const updateData = {
+                    brand,
+                    model,
+                    name,
+                    priceOriginal,
+                    priceEquivalent,
+                    updatedAt: Date.now()
+                };
+
+                await database.ref('parts/' + key).update(updateData);
+                
+                showAlert('editPartAlert', 'Parça başarıyla güncellendi!', 'success');
+                setTimeout(() => {
+                    closeEditModal();
+                    loadAdminPrices();
+                }, 1500);
+                
+            } catch (error) {
+                showAlert('editPartAlert', 'Hata: ' + error.message, 'error');
+            }
+        });
 
         // Delete Part
         async function deletePart(key) {
