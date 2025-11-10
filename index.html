@@ -13,15 +13,17 @@
 
         :root {
             --primary-color: #dc2626;
-            --primary-dark: #b91c1c;
+            --primary-dark: #991b1b;
             --primary-light: #ef4444;
             --success-color: #22c55e;
-            --danger-color: #991b1b;
+            --danger-color: #7f1d1d;
             --warning-color: #f59e0b;
-            --text-dark: #1e293b;
+            --text-dark: #0f0f0f;
             --text-light: #f8fafc;
             --text-gray: #94a3b8;
-            --bg-gradient: linear-gradient(135deg, #dc2626 0%, #991b1b 50%, #fca5a5 100%);
+            --bg-gradient: linear-gradient(135deg, #1a1a1a 0%, #dc2626 50%, #000000 100%);
+            --card-bg: #1a1a1a;
+            --card-border: #dc2626;
         }
 
         body {
@@ -42,9 +44,9 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(circle at 20% 50%, rgba(220, 38, 38, 0.3), transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(185, 28, 28, 0.3), transparent 50%),
-                radial-gradient(circle at 40% 20%, rgba(239, 68, 68, 0.2), transparent 50%);
+                radial-gradient(circle at 20% 50%, rgba(220, 38, 38, 0.4), transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.8), transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(239, 68, 68, 0.3), transparent 50%);
             z-index: -1;
             animation: gradientShift 15s ease infinite;
         }
@@ -56,15 +58,15 @@
 
         /* Navbar - Daha modern ve profesyonel */
         .navbar {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.9);
             backdrop-filter: blur(25px) saturate(180%);
             -webkit-backdrop-filter: blur(25px) saturate(180%);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+            border-bottom: 2px solid var(--primary-color);
             padding: 1rem 0;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 32px rgba(220, 38, 38, 0.3);
         }
 
         .navbar-container {
@@ -79,7 +81,7 @@
         .navbar-brand {
             font-size: 1.5rem;
             font-weight: 800;
-            background: linear-gradient(135deg, #fff, #fecaca);
+            background: linear-gradient(135deg, #fff, #dc2626);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -106,11 +108,11 @@
             align-items: center;
             gap: 0.75rem;
             padding: 0.5rem 1rem;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(220, 38, 38, 0.2);
             backdrop-filter: blur(10px);
             border-radius: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(220, 38, 38, 0.5);
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
         }
 
         .user-avatar {
@@ -142,24 +144,25 @@
 
         /* Cards - Daha temiz ve modern */
         .card {
-            background: rgba(255, 255, 255, 0.98);
+            background: rgba(26, 26, 26, 0.95);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-radius: 1.25rem;
             padding: 2rem;
             box-shadow: 
-                0 20px 60px rgba(0, 0, 0, 0.12),
-                0 0 0 1px rgba(255, 255, 255, 0.5);
+                0 20px 60px rgba(0, 0, 0, 0.5),
+                0 0 0 1px rgba(220, 38, 38, 0.3);
             margin-bottom: 2rem;
             animation: fadeInUp 0.5s ease-out;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(220, 38, 38, 0.2);
         }
 
         .card:hover {
             transform: translateY(-2px);
             box-shadow: 
-                0 25px 70px rgba(0, 0, 0, 0.15),
-                0 0 0 1px rgba(255, 255, 255, 0.5);
+                0 25px 70px rgba(220, 38, 38, 0.4),
+                0 0 0 1px rgba(220, 38, 38, 0.5);
         }
 
         @keyframes fadeInUp {
@@ -177,7 +180,7 @@
             font-size: 1.75rem;
             font-weight: 800;
             margin-bottom: 1.75rem;
-            color: var(--text-dark);
+            color: #ffffff;
             display: flex;
             align-items: center;
             gap: 0.875rem;
@@ -202,7 +205,7 @@
             display: block;
             margin-bottom: 0.5rem;
             font-weight: 600;
-            color: var(--text-dark);
+            color: #e5e7eb;
             font-size: 0.95rem;
             letter-spacing: 0.2px;
         }
@@ -210,30 +213,32 @@
         input, select {
             width: 100%;
             padding: 0.875rem 1rem;
-            border: 2px solid #e2e8f0;
+            border: 2px solid #333333;
             border-radius: 0.75rem;
             font-size: 1rem;
             transition: all 0.3s ease;
             font-family: inherit;
-            background: white;
-            color: var(--text-dark);
+            background: #1a1a1a;
+            color: #ffffff;
             font-weight: 500;
         }
 
         input:focus, select:focus {
             outline: none;
             border-color: var(--primary-color);
-            box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.1);
+            box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.2);
+            background: #0f0f0f;
         }
 
         textarea:focus {
             outline: none;
             border-color: var(--primary-color) !important;
-            box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.1);
+            box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.2);
+            background: #0f0f0f;
         }
 
         input::placeholder {
-            color: #cbd5e1;
+            color: #6b7280;
             font-weight: 400;
         }
 
@@ -306,14 +311,14 @@
             padding: 0.5rem 1.5rem;
             font-size: 0.9rem;
             width: auto;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(220, 38, 38, 0.2);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(220, 38, 38, 0.5);
             color: white;
         }
 
         .btn-logout:hover {
-            background: rgba(153, 27, 27, 0.9);
+            background: rgba(127, 29, 29, 0.9);
             border-color: transparent;
         }
 
@@ -327,15 +332,15 @@
         }
 
         .login-card {
-            background: rgba(255, 255, 255, 0.98);
+            background: rgba(26, 26, 26, 0.98);
             backdrop-filter: blur(30px);
             -webkit-backdrop-filter: blur(30px);
             border-radius: 1.5rem;
             padding: 3rem 2.5rem;
             box-shadow: 
-                0 30px 80px rgba(0, 0, 0, 0.2),
-                0 0 0 1px rgba(255, 255, 255, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.6);
+                0 30px 80px rgba(0, 0, 0, 0.8),
+                0 0 0 1px rgba(220, 38, 38, 0.5);
+            border: 2px solid rgba(220, 38, 38, 0.3);
             width: 100%;
             max-width: 440px;
             animation: scaleIn 0.5s ease-out;
@@ -383,32 +388,33 @@
         table {
             width: 100%;
             border-collapse: collapse;
-            background: white;
+            background: #1a1a1a;
         }
 
         th, td {
             padding: 1rem 1.25rem;
             text-align: left;
-            border-bottom: 1px solid #f1f5f9;
+            border-bottom: 1px solid #333333;
         }
 
         th {
-            background: linear-gradient(135deg, #fef2f2, #fee2e2);
+            background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
             font-weight: 700;
-            color: var(--text-dark);
+            color: #dc2626;
             font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            border-bottom: 2px solid #dc2626;
         }
 
         td {
             font-size: 0.95rem;
-            color: #475569;
+            color: #e5e7eb;
             font-weight: 500;
         }
 
         tr:hover {
-            background: #fef2f2;
+            background: rgba(220, 38, 38, 0.1);
         }
 
         tbody tr:last-child td {
@@ -420,12 +426,13 @@
             display: flex;
             gap: 0.75rem;
             margin-bottom: 2rem;
-            background: rgba(255, 255, 255, 0.5);
+            background: rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(10px);
             padding: 0.5rem;
             border-radius: 1rem;
             flex-wrap: wrap;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 10px rgba(220, 38, 38, 0.2);
+            border: 1px solid rgba(220, 38, 38, 0.2);
         }
 
         .tab {
@@ -435,15 +442,15 @@
             border-radius: 0.75rem;
             cursor: pointer;
             font-weight: 700;
-            color: #64748b;
+            color: #9ca3af;
             transition: all 0.3s ease;
             white-space: nowrap;
             font-size: 0.95rem;
         }
 
         .tab:hover {
-            color: var(--primary-color);
-            background: rgba(220, 38, 38, 0.08);
+            color: #dc2626;
+            background: rgba(220, 38, 38, 0.15);
             transform: none;
             box-shadow: none;
         }
@@ -451,7 +458,7 @@
         .tab.active {
             background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
             color: white;
-            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.4);
         }
 
         .tab-content {
@@ -536,15 +543,15 @@
             display: flex;
             align-items: center;
             padding: 1rem 1.25rem;
-            background: #fef2f2;
-            border: 2px solid #fee2e2;
+            background: #0f0f0f;
+            border: 2px solid #333333;
             border-radius: 0.75rem;
             cursor: pointer;
             transition: all 0.3s ease;
         }
 
         .checkbox-item:hover {
-            background: #fee2e2;
+            background: #1a1a1a;
             border-color: var(--primary-light);
             transform: translateX(5px);
         }
@@ -562,7 +569,7 @@
             cursor: pointer;
             flex: 1;
             font-size: 1rem;
-            color: var(--text-dark);
+            color: #e5e7eb;
             font-weight: 600;
         }
 
@@ -904,7 +911,7 @@
                 <div id="contactTab" class="tab-content">
                     <div class="card">
                         <h2 class="card-title">İletişim Formu</h2>
-                        <p style="margin-bottom: 2rem; color: var(--text-gray); font-size: 1rem;">
+                        <p style="margin-bottom: 2rem; color: #9ca3af; font-size: 1rem;">
                             Sorularınız, önerileriniz veya destek talepleriniz için bizimle iletişime geçin.
                         </p>
                         <div id="contactAlert" class="alert"></div>
@@ -937,7 +944,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="contactMessage">Mesajınız</label>
-                                <textarea id="contactMessage" rows="6" placeholder="Mesajınızı buraya yazın..." required style="width: 100%; padding: 0.875rem 1rem; border: 2px solid #e2e8f0; border-radius: 0.75rem; font-size: 1rem; font-family: inherit; resize: vertical; transition: all 0.3s ease;"></textarea>
+                                <textarea id="contactMessage" rows="6" placeholder="Mesajınızı buraya yazın..." required style="width: 100%; padding: 0.875rem 1rem; border: 2px solid #333333; border-radius: 0.75rem; font-size: 1rem; font-family: inherit; resize: vertical; transition: all 0.3s ease; background: #1a1a1a; color: #ffffff;"></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary">📨 Mesaj Gönder</button>
                         </form>
@@ -968,8 +975,8 @@
         const auth = firebase.auth();
         const database = firebase.database();
 
-        // Admin UID - Bu değeri güncelleyerek admin kullanıcısını belirleyebilirsiniz
-        const ADMIN_UID = 'ADMIN_USER_ID_HERE';
+        // Admin email
+        const ADMIN_EMAIL = 'admin@servis.com';
 
         let currentUser = null;
         let isAdmin = false;
@@ -978,7 +985,7 @@
         auth.onAuthStateChanged(user => {
             if (user) {
                 currentUser = user;
-                isAdmin = user.uid === ADMIN_UID;
+                isAdmin = user.email === ADMIN_EMAIL;
                 showMainApp();
             } else {
                 showLoginPage();
