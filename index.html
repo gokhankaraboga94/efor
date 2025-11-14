@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -767,6 +768,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Login Page -->
     <div id="loginPage" class="login-container">
@@ -872,17 +874,18 @@
                                 <label for="partName">Parça Adı</label>
                                 <input type="text" id="partName" placeholder="Örn: Ekran" required>
                             </div>
+                            <!-- ==================== BU KISIM DEĞİŞTİ - Orijinal zorunlu, muadil isteğe bağlı ==================== -->
                             <div class="form-grid">
                                 <div class="form-group">
-                                    <label for="partPriceOriginal">Orijinal Fiyat (₺) <span style="color: var(--text-gray); font-weight: 400;">(İsteğe bağlı)</span></label>
-                                    <input type="number" id="partPriceOriginal" placeholder="0.00" step="0.01">
+                                    <label for="partPriceOriginal">Orijinal Fiyat (₺)</label>
+                                    <input type="number" id="partPriceOriginal" placeholder="0.00" step="0.01" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="partPriceEquivalent">Muadil Fiyat (₺)</label>
-                                    <input type="number" id="partPriceEquivalent" placeholder="0.00" step="0.01" required>
+                                    <label for="partPriceEquivalent">Muadil Fiyat (₺) <span style="color: var(--text-gray); font-weight: 400;">(İsteğe bağlı)</span></label>
+                                    <input type="number" id="partPriceEquivalent" placeholder="0.00" step="0.01">
                                 </div>
                             </div>
-                            
+                            <!-- ==================== BU KISIM BİTTİ ==================== -->
                             <button type="submit" class="btn btn-success">✓ Parça Ekle</button>
                         </form>
                     </div>
@@ -1048,16 +1051,18 @@
                     <label for="editPartName">Parça Adı</label>
                     <input type="text" id="editPartName" required>
                 </div>
+                <!-- ==================== BU KISIM DEĞİŞTİ - Orijinal zorunlu, muadil isteğe bağlı ==================== -->
                 <div class="form-grid">
                     <div class="form-group">
                         <label for="editPartPriceOriginal">Orijinal Fiyat (₺)</label>
-                        <input type="number" id="editPartPriceOriginal" step="0.01">
+                        <input type="number" id="editPartPriceOriginal" step="0.01" required>
                     </div>
                     <div class="form-group">
                         <label for="editPartPriceEquivalent">Muadil Fiyat (₺)</label>
-                        <input type="number" id="editPartPriceEquivalent" step="0.01" required>
+                        <input type="number" id="editPartPriceEquivalent" step="0.01">
                     </div>
                 </div>
+                <!-- ==================== BU KISIM BİTTİ ==================== -->
                 <div class="form-grid">
                     <button type="submit" class="btn btn-success">✓ Kaydet</button>
                     <button type="button" class="btn btn-danger" onclick="closeEditModal()">İptal</button>
@@ -1292,22 +1297,23 @@
             }
         }
 
-        // Add Part
+        // ==================== BU KISIM DEĞİŞTİ - Add Part Fonksiyonu ====================
+        // Add Part fonksiyonunda validation değişti
         document.getElementById('addPartForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             const brand = document.getElementById('partBrand').value;
             const model = document.getElementById('partModel').value;
             const name = document.getElementById('partName').value;
-            const priceOriginal = parseFloat(document.getElementById('partPriceOriginal').value) || null;
-            const priceEquivalent = parseFloat(document.getElementById('partPriceEquivalent').value);
+            const priceOriginal = parseFloat(document.getElementById('partPriceOriginal').value); // ZORUNLU
+            const priceEquivalent = parseFloat(document.getElementById('partPriceEquivalent').value) || null; // İSTEĞE BAĞLI
 
             try {
                 const partData = {
                     brand,
                     model,
                     name,
-                    priceOriginal,
-                    priceEquivalent,
+                    priceOriginal, // ZORUNLU
+                    priceEquivalent, // İSTEĞE BAĞLI
                     createdAt: Date.now()
                 };
 
@@ -1320,6 +1326,7 @@
                 showAlert('partAlert', 'Hata: ' + error.message, 'error');
             }
         });
+        // ==================== BU KISIM BİTTİ ====================
 
         // Load Admin Prices
         function loadAdminPrices() {
@@ -1331,16 +1338,18 @@
                     const part = child.val();
                     const row = tbody.insertRow();
                     
-                    const priceEquivalent = part.priceEquivalent || part.price || 0;
-                    const priceOriginal = part.priceOriginal || null;
+                    const priceEquivalent = part.priceEquivalent || null;
+                    const priceOriginal = part.priceOriginal; // ZORUNLU olduğu için her zaman var
                     
                     const originalPrice = priceOriginal ? `${priceOriginal.toFixed(2)} ₺` : '<span style="color: var(--text-gray);">-</span>';
+                    const equivalentPrice = priceEquivalent ? `${priceEquivalent.toFixed(2)} ₺` : '<span style="color: var(--text-gray);">-</span>';
+                    
                     row.innerHTML = `
                         <td>${part.brand}</td>
                         <td>${part.model}</td>
                         <td>${part.name}</td>
                         <td>${originalPrice}</td>
-                        <td>${priceEquivalent.toFixed(2)} ₺</td>
+                        <td>${equivalentPrice}</td>
                         <td>
                             <button class="btn btn-warning btn-small" onclick="editPart('${child.key}')">✏️ Düzenle</button>
                             <button class="btn btn-danger btn-small" onclick="deletePart('${child.key}')">🗑️ Sil</button>
@@ -1360,16 +1369,18 @@
                     const part = child.val();
                     const row = tbody.insertRow();
                     
-                    const priceEquivalent = part.priceEquivalent || part.price || 0;
-                    const priceOriginal = part.priceOriginal || null;
+                    const priceEquivalent = part.priceEquivalent || null;
+                    const priceOriginal = part.priceOriginal; // ZORUNLU olduğu için her zaman var
                     
                     const originalPrice = priceOriginal ? `${priceOriginal.toFixed(2)} ₺` : '<span style="color: var(--text-gray);">-</span>';
+                    const equivalentPrice = priceEquivalent ? `${priceEquivalent.toFixed(2)} ₺` : '<span style="color: var(--text-gray);">-</span>';
+                    
                     row.innerHTML = `
                         <td>${part.brand}</td>
                         <td>${part.model}</td>
                         <td>${part.name}</td>
                         <td>${originalPrice}</td>
-                        <td>${priceEquivalent.toFixed(2)} ₺</td>
+                        <td>${equivalentPrice}</td>
                     `;
                 });
             });
@@ -1385,7 +1396,7 @@
                     document.getElementById('editPartModel').value = part.model;
                     document.getElementById('editPartName').value = part.name;
                     document.getElementById('editPartPriceOriginal').value = part.priceOriginal || '';
-                    document.getElementById('editPartPriceEquivalent').value = part.priceEquivalent || part.price || '';
+                    document.getElementById('editPartPriceEquivalent').value = part.priceEquivalent || '';
                     
                     document.getElementById('editPartModal').classList.add('show');
                 }
@@ -1398,7 +1409,8 @@
             document.getElementById('editPartForm').reset();
         }
 
-        // Save Edited Part
+        // ==================== BU KISIM DEĞİŞTİ - Edit Part Fonksiyonu ====================
+        // Edit Part fonksiyonunda validation değişti
         document.getElementById('editPartForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             
@@ -1406,16 +1418,16 @@
             const brand = document.getElementById('editPartBrand').value;
             const model = document.getElementById('editPartModel').value;
             const name = document.getElementById('editPartName').value;
-            const priceOriginal = parseFloat(document.getElementById('editPartPriceOriginal').value) || null;
-            const priceEquivalent = parseFloat(document.getElementById('editPartPriceEquivalent').value);
+            const priceOriginal = parseFloat(document.getElementById('editPartPriceOriginal').value); // ZORUNLU
+            const priceEquivalent = parseFloat(document.getElementById('editPartPriceEquivalent').value) || null; // İSTEĞE BAĞLI
 
             try {
                 const updateData = {
                     brand,
                     model,
                     name,
-                    priceOriginal,
-                    priceEquivalent,
+                    priceOriginal, // ZORUNLU
+                    priceEquivalent, // İSTEĞE BAĞLI
                     updatedAt: Date.now()
                 };
 
@@ -1431,6 +1443,7 @@
                 showAlert('editPartAlert', 'Hata: ' + error.message, 'error');
             }
         });
+        // ==================== BU KISIM BİTTİ ====================
 
         // Delete Part
         async function deletePart(key) {
@@ -1495,7 +1508,8 @@
             });
         });
 
-        // Model Selection
+        // ==================== BU KISIM DEĞİŞTİ - Model Selection ====================
+        // Model selection kısmında parça listesi gösterimi değişti
         document.getElementById('selectModel').addEventListener('change', function() {
             const brand = document.getElementById('selectBrand').value;
             const model = this.value;
@@ -1520,39 +1534,31 @@
                 const container = document.getElementById('partsList');
                 container.innerHTML = '';
                 parts.forEach(part => {
-                    const priceEquivalent = part.priceEquivalent || part.price || 0;
-                    const priceOriginal = part.priceOriginal || null;
+                    const priceEquivalent = part.priceEquivalent || null;
+                    const priceOriginal = part.priceOriginal; // ZORUNLU olduğu için her zaman var
                     
-                    if (priceOriginal) {
-                        const divOriginal = document.createElement('div');
-                        divOriginal.className = 'checkbox-item';
-                        divOriginal.innerHTML = `
-                            <input type="checkbox" id="part_${part.key}_original" value="${part.key}" data-price="${priceOriginal}" data-type="original" onchange="validatePartSelection()">
-                            <label for="part_${part.key}_original" style="margin: 0; cursor: pointer; flex: 1;">
-                                ${part.name} - <strong style="color: #16a34a;">🟢 Orijinal:</strong> ${priceOriginal.toFixed(2)} ₺
-                            </label>
-                        `;
-                        container.appendChild(divOriginal);
-                        
+                    // ÖNCE ORİJİNALİ GÖSTER (ZORUNLU)
+                    const divOriginal = document.createElement('div');
+                    divOriginal.className = 'checkbox-item';
+                    divOriginal.innerHTML = `
+                        <input type="checkbox" id="part_${part.key}_original" value="${part.key}_original" data-price="${priceOriginal}" data-type="original" onchange="validatePartSelection()">
+                        <label for="part_${part.key}_original" style="margin: 0; cursor: pointer; flex: 1;">
+                            ${part.name} - <strong style="color: #16a34a;">🟢 Orijinal:</strong> ${priceOriginal.toFixed(2)} ₺
+                        </label>
+                    `;
+                    container.appendChild(divOriginal);
+                    
+                    // SONRA MUADİLİ GÖSTER (VARSA)
+                    if (priceEquivalent) {
                         const divEquivalent = document.createElement('div');
                         divEquivalent.className = 'checkbox-item';
                         divEquivalent.innerHTML = `
-                            <input type="checkbox" id="part_${part.key}_equivalent" value="${part.key}" data-price="${priceEquivalent}" data-type="equivalent" onchange="validatePartSelection()">
+                            <input type="checkbox" id="part_${part.key}_equivalent" value="${part.key}_equivalent" data-price="${priceEquivalent}" data-type="equivalent" onchange="validatePartSelection()">
                             <label for="part_${part.key}_equivalent" style="margin: 0; cursor: pointer; flex: 1;">
                                 ${part.name} - <strong style="color: #f59e0b;">🟡 Muadil:</strong> ${priceEquivalent.toFixed(2)} ₺
                             </label>
                         `;
                         container.appendChild(divEquivalent);
-                    } else {
-                        const div = document.createElement('div');
-                        div.className = 'checkbox-item';
-                        div.innerHTML = `
-                            <input type="checkbox" id="part_${part.key}_equivalent" value="${part.key}" data-price="${priceEquivalent}" data-type="equivalent" onchange="validatePartSelection()">
-                            <label for="part_${part.key}_equivalent" style="margin: 0; cursor: pointer; flex: 1;">
-                                ${part.name} - <strong style="color: #f59e0b;">🟡 Muadil:</strong> ${priceEquivalent.toFixed(2)} ₺
-                            </label>
-                        `;
-                        container.appendChild(div);
                     }
                 });
 
@@ -1561,22 +1567,60 @@
                 document.getElementById('priceResult').style.display = 'none';
             });
         });
+        // ==================== BU KISIM BİTTİ ====================
 
-        // Validate Part Selection
+        // ==================== BU KISIM DEĞİŞTİ - Validate Part Selection ====================
+        // Parça seçim validasyonu değişti
         function validatePartSelection() {
             const checkboxes = document.querySelectorAll('#partsList input[type="checkbox"]');
             const checked = Array.from(checkboxes).filter(cb => cb.checked);
+            
+            // Aynı parçanın hem orijinal hem muadilini seçmeyi engelle
+            const usedParts = new Set();
+            
+            checked.forEach(cb => {
+                const partKey = cb.value.split('_')[1]; // part_key_original -> key'i al
+                const type = cb.getAttribute('data-type');
+                
+                if (type === 'original') {
+                    // Orijinal seçilmişse, aynı parçanın muadilini disable et
+                    checkboxes.forEach(otherCb => {
+                        const otherPartKey = otherCb.value.split('_')[1];
+                        const otherType = otherCb.getAttribute('data-type');
+                        if (otherPartKey === partKey && otherType === 'equivalent' && !otherCb.checked) {
+                            otherCb.disabled = true;
+                        }
+                    });
+                }
+            });
             
             if (checked.length > 3) {
                 checkboxes.forEach(cb => {
                     if (!cb.checked) cb.disabled = true;
                 });
             } else {
-                checkboxes.forEach(cb => cb.disabled = false);
+                checkboxes.forEach(cb => {
+                    const partKey = cb.value.split('_')[1];
+                    const type = cb.getAttribute('data-type');
+                    const isOriginalChecked = Array.from(checkboxes).some(checkedCb => 
+                        checkedCb.checked && 
+                        checkedCb.value.split('_')[1] === partKey && 
+                        checkedCb.getAttribute('data-type') === 'original'
+                    );
+                    
+                    // Eğer orijinal seçilmişse ve bu muadil ise disable kal, diğer durumlarda enable et
+                    if (isOriginalChecked && type === 'equivalent') {
+                        cb.disabled = true;
+                    } else if (!cb.checked) {
+                        cb.disabled = false;
+                    }
+                });
             }
         }
+        // ==================== BU KISIM BİTTİ ====================
 
-        // Calculate Price
+        // ==================== BU KISIM DEĞİŞTİ - Fiyat Hesaplama Mantığı ====================
+        // Fiyat hesaplama mantığı değişti - önce orijinal, yoksa muadil kullan
         document.getElementById('calculateBtn').addEventListener('click', async function() {
             const checkboxes = document.querySelectorAll('#partsList input[type="checkbox"]:checked');
             
@@ -1587,11 +1631,23 @@
 
             let total = 0;
             const breakdown = [];
+            const usedParts = new Set(); // Aynı parçanın hem orijinal hem muadilini seçmesini engelle
 
             checkboxes.forEach(cb => {
-                const price = parseFloat(cb.getAttribute('data-price'));
+                const partKey = cb.value.split('_')[1]; // part_key_original -> key'i al
                 const type = cb.getAttribute('data-type');
+                const price = parseFloat(cb.getAttribute('data-price'));
                 const label = cb.nextElementSibling.textContent.trim();
+                
+                // Eğer bu parçanın başka versiyonu seçilmişse, bu checkbox'ı atla
+                if (usedParts.has(partKey)) {
+                    return;
+                }
+                
+                // Orijinal seçilmişse, muadilini engelle
+                if (type === 'original') {
+                    usedParts.add(partKey);
+                }
                 
                 total += price;
                 breakdown.push({ name: label, price: price });
@@ -1609,6 +1665,7 @@
 
             document.getElementById('priceResult').style.display = 'block';
         });
+        // ==================== BU KISIM BİTTİ ====================
 
         // Contact Form Submit
         document.getElementById('contactForm').addEventListener('submit', async function(e) {
@@ -1637,3 +1694,6 @@
     </script>
 </body>
 </html>
+
+
+
