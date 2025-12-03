@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,7 +44,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
+            background:
                 radial-gradient(circle at 20% 50%, rgba(220, 38, 38, 0.4), transparent 50%),
                 radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.8), transparent 50%),
                 radial-gradient(circle at 40% 20%, rgba(239, 68, 68, 0.3), transparent 50%);
@@ -53,8 +53,15 @@
         }
 
         @keyframes gradientShift {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.8;
+            }
         }
 
         /* Navbar - Daha modern ve profesyonel */
@@ -150,7 +157,7 @@
             -webkit-backdrop-filter: blur(20px);
             border-radius: 1.25rem;
             padding: 2rem;
-            box-shadow: 
+            box-shadow:
                 0 20px 60px rgba(0, 0, 0, 0.5),
                 0 0 0 1px rgba(220, 38, 38, 0.3);
             margin-bottom: 2rem;
@@ -161,7 +168,7 @@
 
         .card:hover {
             transform: translateY(-2px);
-            box-shadow: 
+            box-shadow:
                 0 25px 70px rgba(220, 38, 38, 0.4),
                 0 0 0 1px rgba(220, 38, 38, 0.5);
         }
@@ -171,6 +178,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -211,7 +219,8 @@
             letter-spacing: 0.2px;
         }
 
-        input, select {
+        input,
+        select {
             width: 100%;
             padding: 0.875rem 1rem;
             border: 2px solid #333333;
@@ -224,7 +233,8 @@
             font-weight: 500;
         }
 
-        input:focus, select:focus {
+        input:focus,
+        select:focus {
             outline: none;
             border-color: var(--primary-color);
             box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.2);
@@ -270,7 +280,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
             transition: left 0.5s ease;
         }
 
@@ -343,7 +353,7 @@
             -webkit-backdrop-filter: blur(30px);
             border-radius: 1.5rem;
             padding: 3rem 2.5rem;
-            box-shadow: 
+            box-shadow:
                 0 30px 80px rgba(0, 0, 0, 0.8),
                 0 0 0 1px rgba(220, 38, 38, 0.5);
             border: 2px solid rgba(220, 38, 38, 0.3);
@@ -357,6 +367,7 @@
                 opacity: 0;
                 transform: scale(0.95);
             }
+
             to {
                 opacity: 1;
                 transform: scale(1);
@@ -402,7 +413,8 @@
             background: #1a1a1a;
         }
 
-        th, td {
+        th,
+        td {
             padding: 1rem 1.25rem;
             text-align: left;
             border-bottom: 1px solid #333333;
@@ -508,8 +520,17 @@
         }
 
         @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.1); opacity: 0.8; }
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+
+            50% {
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
         }
 
         .price-label {
@@ -607,6 +628,7 @@
                 opacity: 0;
                 transform: translateY(-15px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -660,7 +682,7 @@
             backdrop-filter: blur(30px);
             border-radius: 1.25rem;
             padding: 2.5rem;
-            box-shadow: 
+            box-shadow:
                 0 30px 80px rgba(220, 38, 38, 0.3),
                 0 0 0 1px rgba(220, 38, 38, 0.5);
             border: 2px solid rgba(220, 38, 38, 0.3);
@@ -742,7 +764,8 @@
                 font-size: 0.9rem;
             }
 
-            th, td {
+            th,
+            td {
                 padding: 0.875rem 1rem;
                 font-size: 0.875rem;
             }
@@ -766,74 +789,216 @@
                 padding: 1.25rem;
             }
         }
+
+
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #dc2626;
+            --primary-dark: #991b1b;
+            --primary-light: #ef4444;
+            --success-color: #22c55e;
+            --danger-color: #1d7f25;
+            --warning-color: #f59e0b;
+            --text-dark: #0f0f0f;
+            --text-light: #f8fafc;
+            --text-gray: #94a3b8;
+            --bg-gradient: linear-gradient(135deg, #1a1a1a 0%, #267bdc 50%, #000000 100%);
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            background: var(--bg-gradient);
+            min-height: 100vh;
+            color: var(--text-dark);
+            line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* ... Diğer tüm stiller (navbar, card, table, btn, inputs vb.) burada olmalı ... */
+
+        /* Önceki kodunuzdaki CSS'in tamamını buraya dahil ettiğinizi varsayıyoruz. 
+           Sistem logları için mevcut 'table', 'card' ve 'tab' sınıfları yeterlidir. */
+
+        /* Gerekli temel sınıflar (Kopyala-yapıştır yaparken kaybolmasın diye özet): */
+        .hidden {
+            display: none !important;
+        }
+
+        .navbar {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 1rem 0;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .card {
+            background: rgba(26, 26, 26, 0.95);
+            padding: 2rem;
+            border-radius: 1.25rem;
+            margin-bottom: 2rem;
+            color: white;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+
+        .tab {
+            padding: 0.75rem 1.5rem;
+            background: transparent;
+            color: #9ca3af;
+            border: none;
+            cursor: pointer;
+            border-radius: 0.75rem;
+            font-weight: bold;
+        }
+
+        .tab.active {
+            background: #dc2626;
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            color: white;
+        }
+
+        th,
+        td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #333;
+        }
+
+        .alert {
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 0.5rem;
+            display: none;
+        }
+
+        .alert.show {
+            display: block;
+        }
+
+        .alert-success {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .alert-error {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        /* ... */
     </style>
 </head>
 
 <body>
-    <!-- Login Page -->
-    <div id="loginPage" class="login-container">
-        <div class="login-card">
-            <h1 class="login-title">💰 Efor Giriş</h1>
-            <p class="login-subtitle">Devam etmek için hesabınıza giriş yapın</p>
+    <div id="loginPage" class="login-container"
+        style="display: flex; justify-content: center; align-items: center; min-height: 100vh;">
+        <div class="login-card"
+            style="background: rgba(26,26,26,0.95); padding: 3rem; border-radius: 1.5rem; width: 100%; max-width: 440px; color: white;">
+            <h1 class="login-title" style="text-align: center; color: #dc2626; margin-bottom: 1rem;">💰 Efor Giriş</h1>
+            <p class="login-subtitle" style="text-align: center; color: #9ca3af; margin-bottom: 2rem;">Devam etmek için
+                hesabınıza giriş yapın</p>
             <div id="loginAlert" class="alert"></div>
             <form id="loginForm">
-                <div class="form-group">
-                    <label for="email">E-posta Adresi</label>
-                    <input type="email" id="email" placeholder="ornek@efor.com" required>
+                <div class="form-group" style="margin-bottom: 1.5rem;">
+                    <label for="email" style="display: block; margin-bottom: 0.5rem;">E-posta Adresi</label>
+                    <input type="email" id="email" placeholder="ornek@efor.com" required
+                        style="width: 100%; padding: 0.8rem; border-radius: 0.5rem; border: 1px solid #333; background: #1a1a1a; color: white;">
                 </div>
-                <div class="form-group">
-                    <label for="password">Şifre</label>
-                    <input type="password" id="password" placeholder="••••••••" required>
+                <div class="form-group" style="margin-bottom: 1.5rem;">
+                    <label for="password" style="display: block; margin-bottom: 0.5rem;">Şifre</label>
+                    <input type="password" id="password" placeholder="••••••••" required
+                        style="width: 100%; padding: 0.8rem; border-radius: 0.5rem; border: 1px solid #333; background: #1a1a1a; color: white;">
                 </div>
-                <button type="submit" class="btn btn-primary">Giriş Yap →</button>
+                <button type="submit" class="btn btn-primary"
+                    style="width: 100%; padding: 1rem; background: #dc2626; color: white; border: none; border-radius: 0.5rem; cursor: pointer; font-weight: bold;">Giriş
+                    Yap →</button>
             </form>
         </div>
     </div>
 
-    <!-- Main App -->
     <div id="mainApp" class="hidden">
-        <!-- Navbar -->
-        <nav class="navbar">
-            <div class="navbar-container">
-                <div class="navbar-brand">
+        <nav class="navbar" style="padding: 1rem 2rem;">
+            <div class="navbar-container"
+                style="width: 100%; max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+                <div class="navbar-brand" style="font-size: 1.5rem; font-weight: bold; color: #dc2626;">
                     Efor Fiyat Takip Sistemi
                 </div>
-                <div class="navbar-user">
-                    <div class="user-info">
-                        <div class="user-avatar" id="userAvatar"></div>
-                        <span class="user-email" id="userEmailDisplay"></span>
+                <div class="navbar-user" style="display: flex; align-items: center; gap: 1rem;">
+                    <div class="user-info"
+                        style="display: flex; align-items: center; gap: 0.5rem; background: rgba(220,38,38,0.2); padding: 0.5rem 1rem; border-radius: 2rem;">
+                        <div class="user-avatar" id="userAvatar"
+                            style="width: 32px; height: 32px; background: #dc2626; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">
+                        </div>
+                        <span class="user-email" id="userEmailDisplay" style="color: white; font-size: 0.9rem;"></span>
                     </div>
-                    <button class="btn btn-danger btn-logout" onclick="logout()">Çıkış</button>
+                    <button class="btn btn-danger btn-logout" onclick="logout()"
+                        style="padding: 0.5rem 1.5rem; background: rgba(220,38,38,0.2); border: 1px solid #dc2626; color: white; border-radius: 0.5rem; cursor: pointer;">Çıkış</button>
                 </div>
             </div>
         </nav>
 
         <div class="container">
-            <!-- Admin Panel -->
             <div id="adminPanel" class="hidden">
                 <div class="tabs">
                     <button class="tab active" onclick="switchTab('users')">👥 Kullanıcı Yönetimi</button>
                     <button class="tab" onclick="switchTab('parts')">🔧 Parça Yönetimi</button>
                     <button class="tab" onclick="switchTab('prices')">💰 Fiyat Listesi</button>
+                    <button class="tab" onclick="switchTab('logs')">📊 Sistem Logları</button>
                 </div>
 
-                <!-- Users Tab -->
                 <div id="usersTab" class="tab-content active">
                     <div class="card">
                         <h2 class="card-title">Yeni Kullanıcı Ekle</h2>
                         <div id="userAlert" class="alert"></div>
                         <form id="addUserForm">
-                            <div class="form-grid">
+                            <div class="form-grid"
+                                style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
                                 <div class="form-group">
                                     <label for="newUserEmail">E-posta</label>
-                                    <input type="email" id="newUserEmail" required>
+                                    <input type="email" id="newUserEmail" required
+                                        style="width: 100%; padding: 0.8rem; background: #1a1a1a; border: 1px solid #333; color: white; border-radius: 0.5rem;">
                                 </div>
                                 <div class="form-group">
                                     <label for="newUserPassword">Şifre</label>
-                                    <input type="password" id="newUserPassword" required>
+                                    <input type="password" id="newUserPassword" required
+                                        style="width: 100%; padding: 0.8rem; background: #1a1a1a; border: 1px solid #333; color: white; border-radius: 0.5rem;">
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-success">✓ Kullanıcı Ekle</button>
+                            <button type="submit" class="btn btn-success"
+                                style="width: 100%; padding: 0.8rem; background: #22c55e; color: white; border: none; border-radius: 0.5rem; cursor: pointer;">✓
+                                Kullanıcı Ekle</button>
                         </form>
                     </div>
 
@@ -854,44 +1019,49 @@
                     </div>
                 </div>
 
-                <!-- Parts Tab -->
                 <div id="partsTab" class="tab-content">
                     <div class="card">
                         <h2 class="card-title">Yeni Parça Ekle</h2>
                         <div id="partAlert" class="alert"></div>
                         <form id="addPartForm">
-                            <div class="form-grid">
+                            <div class="form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
                                 <div class="form-group">
                                     <label for="partBrand">Marka</label>
-                                    <input type="text" id="partBrand" placeholder="Örn: Apple" required>
+                                    <input type="text" id="partBrand" placeholder="Örn: Apple" required
+                                        style="width: 100%; padding: 0.8rem; background: #1a1a1a; border: 1px solid #333; color: white; border-radius: 0.5rem;">
                                 </div>
                                 <div class="form-group">
                                     <label for="partModel">Model</label>
-                                    <input type="text" id="partModel" placeholder="Örn: iPhone 14" required>
+                                    <input type="text" id="partModel" placeholder="Örn: iPhone 14" required
+                                        style="width: 100%; padding: 0.8rem; background: #1a1a1a; border: 1px solid #333; color: white; border-radius: 0.5rem;">
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" style="margin: 1rem 0;">
                                 <label for="partName">Parça Adı</label>
-                                <input type="text" id="partName" placeholder="Örn: Ekran" required>
+                                <input type="text" id="partName" placeholder="Örn: Ekran" required
+                                    style="width: 100%; padding: 0.8rem; background: #1a1a1a; border: 1px solid #333; color: white; border-radius: 0.5rem;">
                             </div>
-                            <!-- ==================== BU KISIM DEĞİŞTİ - Orijinal zorunlu, muadil isteğe bağlı ==================== -->
-                            <div class="form-grid">
+                            <div class="form-grid"
+                                style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
                                 <div class="form-group">
                                     <label for="partPriceOriginal">Orijinal Fiyat (₺)</label>
-                                    <input type="number" id="partPriceOriginal" placeholder="0.00" step="0.01" required>
+                                    <input type="number" id="partPriceOriginal" placeholder="0.00" step="0.01" required
+                                        style="width: 100%; padding: 0.8rem; background: #1a1a1a; border: 1px solid #333; color: white; border-radius: 0.5rem;">
                                 </div>
                                 <div class="form-group">
-                                    <label for="partPriceEquivalent">Muadil Fiyat (₺) <span style="color: var(--text-gray); font-weight: 400;">(İsteğe bağlı)</span></label>
-                                    <input type="number" id="partPriceEquivalent" placeholder="0.00" step="0.01">
+                                    <label for="partPriceEquivalent">Muadil Fiyat (₺) <span
+                                            style="color: #94a3b8; font-weight: 400;">(İsteğe bağlı)</span></label>
+                                    <input type="number" id="partPriceEquivalent" placeholder="0.00" step="0.01"
+                                        style="width: 100%; padding: 0.8rem; background: #1a1a1a; border: 1px solid #333; color: white; border-radius: 0.5rem;">
                                 </div>
                             </div>
-                            <!-- ==================== BU KISIM BİTTİ ==================== -->
-                            <button type="submit" class="btn btn-success">✓ Parça Ekle</button>
+                            <button type="submit" class="btn btn-success"
+                                style="width: 100%; padding: 0.8rem; background: #22c55e; color: white; border: none; border-radius: 0.5rem; cursor: pointer;">✓
+                                Parça Ekle</button>
                         </form>
                     </div>
                 </div>
 
-                <!-- Prices Tab -->
                 <div id="pricesTab" class="tab-content">
                     <div class="card">
                         <h2 class="card-title">Fiyat Listesi</h2>
@@ -912,9 +1082,46 @@
                         </div>
                     </div>
                 </div>
+
+                <div id="logsTab" class="tab-content">
+                    <div class="form-grid"
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 1.5rem;">
+                        <div class="card">
+                            <h2 class="card-title">🔐 Giriş/Çıkış Hareketleri</h2>
+                            <div class="table-container" style="max-height: 400px; overflow-y: auto;">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Kullanıcı</th>
+                                            <th>İşlem</th>
+                                            <th>Tarih/Saat</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="authLogsList"></tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h2 class="card-title">💰 Fiyat Hesaplama Geçmişi</h2>
+                            <div class="table-container" style="max-height: 400px; overflow-y: auto;">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Kullanıcı</th>
+                                            <th>Detay (Marka/Model)</th>
+                                            <th>Tutar</th>
+                                            <th>Tarih/Saat</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="calcLogsList"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <!-- User Panel -->
             <div id="userPanel" class="hidden">
                 <div class="tabs">
                     <button class="tab active" onclick="switchUserTab('calculate')">💰 Fiyat Hesaplama</button>
@@ -922,44 +1129,51 @@
                     <button class="tab" onclick="switchUserTab('contact')">📞 İletişim</button>
                 </div>
 
-                <!-- Calculate Tab -->
                 <div id="calculateTab" class="tab-content active">
                     <div class="card">
                         <h2 class="card-title">Fiyat Hesaplama</h2>
                         <div id="userAlert" class="alert"></div>
-                        
-                        <div class="form-group">
+
+                        <div class="form-group" style="margin-bottom: 1rem;">
                             <label for="selectBrand">Marka Seçin</label>
-                            <select id="selectBrand" required>
+                            <select id="selectBrand" required
+                                style="width: 100%; padding: 0.8rem; background: #1a1a1a; border: 1px solid #333; color: white; border-radius: 0.5rem;">
                                 <option value="">-- Marka Seçin --</option>
                             </select>
                         </div>
 
-                        <div class="form-group" id="modelGroup" style="display: none;">
+                        <div class="form-group" id="modelGroup" style="display: none; margin-bottom: 1rem;">
                             <label for="selectModel">Model Seçin</label>
-                            <select id="selectModel" required>
+                            <select id="selectModel" required
+                                style="width: 100%; padding: 0.8rem; background: #1a1a1a; border: 1px solid #333; color: white; border-radius: 0.5rem;">
                                 <option value="">-- Model Seçin --</option>
                             </select>
                         </div>
 
-                        <div class="form-group" id="partsGroup" style="display: none;">
+                        <div class="form-group" id="partsGroup" style="display: none; margin-bottom: 1rem;">
                             <label>Parça Seçin (En az 1, en fazla 3)</label>
-                            <div class="checkbox-group" id="partsList"></div>
+                            <div class="checkbox-group" id="partsList"
+                                style="display: flex; flex-direction: column; gap: 0.5rem;"></div>
                         </div>
 
-                        <button id="calculateBtn" class="btn btn-primary" style="display: none;">💰 Fiyat Hesapla</button>
+                        <button id="calculateBtn" class="btn btn-primary"
+                            style="display: none; width: 100%; padding: 1rem; background: #dc2626; color: white; border: none; border-radius: 0.5rem; cursor: pointer; font-weight: bold;">💰
+                            Fiyat Hesapla</button>
 
-                        <div id="priceResult" style="display: none;">
-                            <div class="price-display">
+                        <div id="priceResult" style="display: none; margin-top: 2rem;">
+                            <div class="price-display"
+                                style="background: linear-gradient(135deg, #dc2626, #991b1b); padding: 2rem; border-radius: 1rem; text-align: center;">
                                 <div class="price-label">Toplam Tutar</div>
-                                <div class="price-amount" id="totalPrice">0 ₺</div>
-                                <div class="price-details" id="priceBreakdown"></div>
+                                <div class="price-amount" id="totalPrice" style="font-size: 3rem; font-weight: 900;">0 ₺
+                                </div>
+                                <div class="price-details" id="priceBreakdown"
+                                    style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.2);">
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- List Tab -->
                 <div id="listTab" class="tab-content">
                     <div class="card">
                         <h2 class="card-title">Fiyat Listesi</h2>
@@ -980,46 +1194,47 @@
                     </div>
                 </div>
 
-                <!-- Contact Tab -->
                 <div id="contactTab" class="tab-content">
                     <div class="card">
                         <h2 class="card-title">İletişim Formu</h2>
-                        <p style="margin-bottom: 2rem; color: #9ca3af; font-size: 1rem;">
-                            Sorularınız, önerileriniz veya destek talepleriniz için bizimle iletişime geçin.
-                        </p>
                         <div id="contactAlert" class="alert"></div>
                         <form id="contactForm">
-                            <div class="form-grid">
+                            <div class="form-grid"
+                                style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
                                 <div class="form-group">
                                     <label for="contactName">Ad Soyad</label>
-                                    <input type="text" id="contactName" placeholder="Adınız ve Soyadınız" required>
+                                    <input type="text" id="contactName" required
+                                        style="width: 100%; padding: 0.8rem; background: #1a1a1a; border: 1px solid #333; color: white; border-radius: 0.5rem;">
                                 </div>
                                 <div class="form-group">
-                                    <label for="contactEmail">E-posta <span style="color: var(--text-gray); font-weight: 400;">(İsteğe bağlı)</span></label>
-                                    <input type="email" id="contactEmail" placeholder="ornek@email.com">
+                                    <label for="contactEmail">E-posta</label>
+                                    <input type="email" id="contactEmail"
+                                        style="width: 100%; padding: 0.8rem; background: #1a1a1a; border: 1px solid #333; color: white; border-radius: 0.5rem;">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="contactPhone">Telefon <span style="color: var(--text-gray); font-weight: 400;">(İsteğe bağlı)</span></label>
-                                <input type="tel" id="contactPhone" placeholder="0555 123 45 67">
+                            <div class="form-group" style="margin-bottom: 1rem;">
+                                <label for="contactPhone">Telefon</label>
+                                <input type="tel" id="contactPhone"
+                                    style="width: 100%; padding: 0.8rem; background: #1a1a1a; border: 1px solid #333; color: white; border-radius: 0.5rem;">
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" style="margin-bottom: 1rem;">
                                 <label for="contactSubject">Konu</label>
-                                <select id="contactSubject" required>
+                                <select id="contactSubject" required
+                                    style="width: 100%; padding: 0.8rem; background: #1a1a1a; border: 1px solid #333; color: white; border-radius: 0.5rem;">
                                     <option value="">-- Konu Seçin --</option>
                                     <option value="Genel Bilgi">Genel Bilgi</option>
                                     <option value="Fiyat Talebi">Fiyat Talebi</option>
-                                    <option value="Teknik Destek">Teknik Destek</option>
-                                    <option value="Şikayet">Şikayet</option>
-                                    <option value="Öneri">Öneri</option>
                                     <option value="Diğer">Diğer</option>
                                 </select>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" style="margin-bottom: 1rem;">
                                 <label for="contactMessage">Mesajınız</label>
-                                <textarea id="contactMessage" rows="6" placeholder="Mesajınızı buraya yazın..." required style="width: 100%; padding: 0.875rem 1rem; border: 2px solid #333333; border-radius: 0.75rem; font-size: 1rem; font-family: inherit; resize: vertical; transition: all 0.3s ease; background: #1a1a1a; color: #ffffff;"></textarea>
+                                <textarea id="contactMessage" rows="6" required
+                                    style="width: 100%; padding: 0.8rem; background: #1a1a1a; border: 1px solid #333; color: white; border-radius: 0.5rem;"></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary">📨 Mesaj Gönder</button>
+                            <button type="submit" class="btn btn-primary"
+                                style="width: 100%; padding: 1rem; background: #dc2626; color: white; border: none; border-radius: 0.5rem;">📨
+                                Mesaj Gönder</button>
                         </form>
                     </div>
                 </div>
@@ -1027,51 +1242,60 @@
         </div>
     </div>
 
-    <!-- Edit Part Modal -->
-    <div id="editPartModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title">Parça Düzenle</h3>
-                <button class="modal-close" onclick="closeEditModal()">×</button>
+    <div id="editPartModal" class="modal"
+        style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; align-items: center; justify-content: center;">
+        <div class="modal-content"
+            style="background: rgba(26,26,26,0.95); padding: 2rem; border-radius: 1rem; width: 90%; max-width: 500px; color: white;">
+            <div class="modal-header" style="display: flex; justify-content: space-between; margin-bottom: 2rem;">
+                <h3 class="modal-title" style="font-size: 1.5rem;">Parça Düzenle</h3>
+                <button class="modal-close" onclick="closeEditModal()"
+                    style="background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer;">×</button>
             </div>
             <div id="editPartAlert" class="alert"></div>
             <form id="editPartForm">
                 <input type="hidden" id="editPartKey">
-                <div class="form-grid">
+                <div class="form-grid"
+                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
                     <div class="form-group">
                         <label for="editPartBrand">Marka</label>
-                        <input type="text" id="editPartBrand" required>
+                        <input type="text" id="editPartBrand" required
+                            style="width: 100%; padding: 0.8rem; background: #1a1a1a; border: 1px solid #333; color: white; border-radius: 0.5rem;">
                     </div>
                     <div class="form-group">
                         <label for="editPartModel">Model</label>
-                        <input type="text" id="editPartModel" required>
+                        <input type="text" id="editPartModel" required
+                            style="width: 100%; padding: 0.8rem; background: #1a1a1a; border: 1px solid #333; color: white; border-radius: 0.5rem;">
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group" style="margin-bottom: 1rem;">
                     <label for="editPartName">Parça Adı</label>
-                    <input type="text" id="editPartName" required>
+                    <input type="text" id="editPartName" required
+                        style="width: 100%; padding: 0.8rem; background: #1a1a1a; border: 1px solid #333; color: white; border-radius: 0.5rem;">
                 </div>
-                <!-- ==================== BU KISIM DEĞİŞTİ - Orijinal zorunlu, muadil isteğe bağlı ==================== -->
-                <div class="form-grid">
+                <div class="form-grid"
+                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
                     <div class="form-group">
                         <label for="editPartPriceOriginal">Orijinal Fiyat (₺)</label>
-                        <input type="number" id="editPartPriceOriginal" step="0.01" required>
+                        <input type="number" id="editPartPriceOriginal" step="0.01" required
+                            style="width: 100%; padding: 0.8rem; background: #1a1a1a; border: 1px solid #333; color: white; border-radius: 0.5rem;">
                     </div>
                     <div class="form-group">
                         <label for="editPartPriceEquivalent">Muadil Fiyat (₺)</label>
-                        <input type="number" id="editPartPriceEquivalent" step="0.01">
+                        <input type="number" id="editPartPriceEquivalent" step="0.01"
+                            style="width: 100%; padding: 0.8rem; background: #1a1a1a; border: 1px solid #333; color: white; border-radius: 0.5rem;">
                     </div>
                 </div>
-                <!-- ==================== BU KISIM BİTTİ ==================== -->
-                <div class="form-grid">
-                    <button type="submit" class="btn btn-success">✓ Kaydet</button>
-                    <button type="button" class="btn btn-danger" onclick="closeEditModal()">İptal</button>
+                <div class="form-grid" style="display: flex; gap: 1rem;">
+                    <button type="submit" class="btn btn-success"
+                        style="flex: 1; padding: 0.8rem; background: #22c55e; color: white; border: none; border-radius: 0.5rem; cursor: pointer;">✓
+                        Kaydet</button>
+                    <button type="button" class="btn btn-danger" onclick="closeEditModal()"
+                        style="flex: 1; padding: 0.8rem; background: #991b1b; color: white; border: none; border-radius: 0.5rem; cursor: pointer;">İptal</button>
                 </div>
             </form>
         </div>
     </div>
 
-    <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
@@ -1104,12 +1328,10 @@
             if (user) {
                 currentUser = user;
                 isAdmin = user.email === ADMIN_EMAIL;
-                
-                // Eğer kullanıcı veritabanında yoksa ve admin değilse çıkış yap
+
                 if (!isAdmin) {
                     database.ref('users/' + user.uid).once('value', snapshot => {
                         if (!snapshot.exists()) {
-                            // Kullanıcı silinmiş, çıkış yap
                             auth.signOut();
                             showAlert('loginAlert', 'Hesabınız sistem yöneticisi tarafından kaldırılmış.', 'error');
                         } else {
@@ -1120,6 +1342,7 @@
                     showMainApp();
                 }
             } else {
+                currentUser = null;
                 showLoginPage();
             }
         });
@@ -1143,37 +1366,70 @@
             try {
                 const userCredential = await auth.signInWithEmailAndPassword(email, password);
                 const user = userCredential.user;
-                
-                // Admin değilse veritabanında olup olmadığını kontrol et
+
+                // Admin değilse veritabanı kontrolü
                 if (user.email !== ADMIN_EMAIL) {
                     const snapshot = await database.ref('users/' + user.uid).once('value');
                     if (!snapshot.exists()) {
-                        // Kullanıcı veritabanında yok, çıkış yap
                         await auth.signOut();
-                        showAlert('loginAlert', 'Hesabınız bulunamadı veya silinmiş. Lütfen yönetici ile iletişime geçin.', 'error');
+                        showAlert('loginAlert', 'Hesabınız bulunamadı.', 'error');
+                        return;
                     }
                 }
+
+                // --- GİRİŞ LOGU ---
+                try {
+                    const loginLog = {
+                        category: 'AUTH',
+                        action: 'Giriş Yapıldı',
+                        userEmail: user.email,
+                        userId: user.uid,
+                        timestamp: firebase.database.ServerValue.TIMESTAMP
+                    };
+                    await database.ref('system_logs').push(loginLog);
+                    console.log('✅ Giriş logu kaydedildi:', user.email);
+                } catch (logError) {
+                    console.error('❌ Giriş logu hatası:', logError);
+                }
+                // ------------------
+
             } catch (error) {
                 showAlert('loginAlert', 'Giriş başarısız: ' + error.message, 'error');
             }
         });
 
         // Logout
-        function logout() {
+        async function logout() {
+            // --- ÇIKIŞ LOGU ---
+            if (currentUser) {
+                try {
+                    const logoutLog = {
+                        category: 'AUTH',
+                        action: 'Çıkış Yapıldı',
+                        userEmail: currentUser.email,
+                        userId: currentUser.uid,
+                        timestamp: firebase.database.ServerValue.TIMESTAMP
+                    };
+                    await database.ref('system_logs').push(logoutLog);
+                    console.log('✅ Çıkış logu kaydedildi:', currentUser.email);
+                } catch (logError) {
+                    console.error('❌ Çıkış logu hatası:', logError);
+                }
+            }
+            // ------------------
             auth.signOut();
         }
 
         // Show Pages
         function showLoginPage() {
-            document.getElementById('loginPage').classList.remove('hidden');
+            document.getElementById('loginPage').style.display = 'flex';
             document.getElementById('mainApp').classList.add('hidden');
         }
 
         function showMainApp() {
-            document.getElementById('loginPage').classList.add('hidden');
+            document.getElementById('loginPage').style.display = 'none';
             document.getElementById('mainApp').classList.remove('hidden');
-            
-            // Set user info
+
             const avatar = document.getElementById('userAvatar');
             const emailDisplay = document.getElementById('userEmailDisplay');
             avatar.textContent = currentUser.email.charAt(0).toUpperCase();
@@ -1184,6 +1440,7 @@
                 document.getElementById('userPanel').classList.add('hidden');
                 loadUsers();
                 loadAdminPrices();
+                loadSystemLogs(); // <-- ADMİN GİRİNCE LOGLARI YÜKLE
             } else {
                 document.getElementById('adminPanel').classList.add('hidden');
                 document.getElementById('userPanel').classList.remove('hidden');
@@ -1192,15 +1449,107 @@
             }
         }
 
+        // --- LOGLARI YÜKLEME FONKSİYONU ---
+        function loadSystemLogs() {
+            console.log('📊 Sistem logları yükleniyor...');
+
+            // Son 100 logu getir ve gerçek zamanlı güncelle
+            database.ref('system_logs').limitToLast(100).on('value', snapshot => {
+                const authList = document.getElementById('authLogsList');
+                const calcList = document.getElementById('calcLogsList');
+
+                if (!authList || !calcList) {
+                    console.error('❌ Log tabloları bulunamadı!');
+                    return;
+                }
+
+                authList.innerHTML = '';
+                calcList.innerHTML = '';
+
+                // Logları tersten sıralamak için array'e alalım
+                const logs = [];
+                snapshot.forEach(child => {
+                    const logData = child.val();
+                    if (logData) {
+                        logs.push({ id: child.key, ...logData });
+                    }
+                });
+
+                logs.reverse(); // En yeniden eskiye
+
+                let authCount = 0;
+                let calcCount = 0;
+
+                logs.forEach(log => {
+                    try {
+                        const date = new Date(log.timestamp).toLocaleString('tr-TR', {
+                            day: '2-digit',
+                            month: '2-digit',
+                            year: 'numeric',
+                            hour: '2-digit',
+                            minute: '2-digit',
+                            second: '2-digit'
+                        });
+
+                        if (log.category === 'AUTH') {
+                            authCount++;
+                            const row = authList.insertRow();
+                            const isLogin = log.action && log.action.includes('Giriş');
+                            const color = isLogin ? '#22c55e' : '#ef4444';
+                            const icon = isLogin ? '🔓' : '🔒';
+
+                            row.innerHTML = `
+                                <td style="color: #e5e7eb;">${log.userEmail || 'Bilinmeyen'}</td>
+                                <td style="color: ${color}; font-weight: bold;">${icon} ${log.action || 'İşlem'}</td>
+                                <td style="color: #9ca3af; font-size: 0.9rem;">${date}</td>
+                            `;
+                        } else if (log.category === 'CALCULATION') {
+                            calcCount++;
+                            const row = calcList.insertRow();
+                            const details = log.details || {};
+                            const detailText = details.brand ?
+                                `<strong style="color: #dc2626;">${details.brand} ${details.model}</strong><br><span style="font-size:0.85rem; color:#9ca3af;">${details.parts || 'Parça bilgisi yok'}</span>` :
+                                '<span style="color: #6b7280;">Detay yok</span>';
+
+                            row.innerHTML = `
+                                <td style="color: #e5e7eb;">${log.userEmail || 'Bilinmeyen'}</td>
+                                <td>${detailText}</td>
+                                <td style="color: #22c55e; font-weight: bold; font-size: 1.05rem;">${details.totalPrice ? details.totalPrice.toFixed(2) + ' ₺' : '-'}</td>
+                                <td style="color: #9ca3af; font-size: 0.9rem;">${date}</td>
+                            `;
+                        }
+                    } catch (error) {
+                        console.error('❌ Log işleme hatası:', error, log);
+                    }
+                });
+
+                console.log(`✅ Loglar yüklendi: ${authCount} giriş/çıkış, ${calcCount} hesaplama`);
+
+                // Eğer hiç log yoksa bilgilendirme göster
+                if (authCount === 0) {
+                    authList.innerHTML = '<tr><td colspan="3" style="text-align: center; color: #6b7280; padding: 2rem;">Henüz giriş/çıkış logu bulunmuyor</td></tr>';
+                }
+                if (calcCount === 0) {
+                    calcList.innerHTML = '<tr><td colspan="4" style="text-align: center; color: #6b7280; padding: 2rem;">Henüz fiyat hesaplama logu bulunmuyor</td></tr>';
+                }
+            }, error => {
+                console.error('❌ Logları yükleme hatası:', error);
+            });
+        }
+        // --------------------------------------------------
+
         // Tab Switching (Admin)
         function switchTab(tabName) {
             const tabs = document.querySelectorAll('#adminPanel .tab');
             const contents = document.querySelectorAll('#adminPanel .tab-content');
-            
+
             tabs.forEach(tab => tab.classList.remove('active'));
             contents.forEach(content => content.classList.remove('active'));
-            
-            event.target.classList.add('active');
+
+            // Eğer tıklanan element butonsa onu, değilse parent'ını al (target garantisi)
+            const clickedTab = event.target;
+            clickedTab.classList.add('active');
+
             document.getElementById(tabName + 'Tab').classList.add('active');
         }
 
@@ -1208,10 +1557,10 @@
         function switchUserTab(tabName) {
             const tabs = document.querySelectorAll('#userPanel .tab');
             const contents = document.querySelectorAll('#userPanel .tab-content');
-            
+
             tabs.forEach(tab => tab.classList.remove('active'));
             contents.forEach(content => content.classList.remove('active'));
-            
+
             event.target.classList.add('active');
             document.getElementById(tabName + 'Tab').classList.add('active');
         }
@@ -1226,30 +1575,23 @@
                 const response = await fetch('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=' + firebaseConfig.apiKey, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ 
-                        email, 
-                        password, 
-                        returnSecureToken: true
-                    })
+                    body: JSON.stringify({ email, password, returnSecureToken: true })
                 });
 
                 const data = await response.json();
-                
+
                 if (data.localId) {
-                    // Kullanıcıyı veritabanına kaydet
                     await database.ref('users/' + data.localId).set({
                         email: email,
                         createdAt: Date.now(),
                         createdBy: currentUser.uid
                     });
-                    
+
                     showAlert('userAlert', 'Kullanıcı başarıyla eklendi!', 'success');
                     document.getElementById('addUserForm').reset();
-                    loadUsers();
+                    loadUsers(); // Refresh list
                 } else if (data.error) {
                     throw new Error(data.error.message);
-                } else {
-                    throw new Error('Kullanıcı eklenemedi');
                 }
             } catch (error) {
                 showAlert('userAlert', 'Hata: ' + error.message, 'error');
@@ -1261,98 +1603,69 @@
             database.ref('users').on('value', snapshot => {
                 const tbody = document.getElementById('usersList');
                 tbody.innerHTML = '';
-
                 snapshot.forEach(child => {
                     const user = child.val();
-                    const userId = child.key;
-                    
-                    // Admin kendisini gösterme
                     if (user.email === ADMIN_EMAIL) return;
-                    
+
                     const row = tbody.insertRow();
                     const createdDate = new Date(user.createdAt).toLocaleDateString('tr-TR');
-                    
+
                     row.innerHTML = `
                         <td>${user.email}</td>
                         <td>${createdDate}</td>
-                        <td>
-                            <button class="btn btn-danger btn-small" onclick="deleteUser('${userId}', '${user.email}')">🗑️ Sil</button>
-                        </td>
+                        <td><button class="btn btn-danger btn-small" onclick="deleteUser('${child.key}', '${user.email}')" style="padding: 0.5rem; background: #991b1b; color: white; border: none; border-radius: 0.3rem;">🗑️ Sil</button></td>
                     `;
                 });
             });
         }
 
-        // Delete User
         async function deleteUser(userId, email) {
-            if (confirm(`${email} adlı kullanıcıyı silmek istediğinizden emin misiniz?\n\nNot: Kullanıcı veritabanından silinecek ve bir daha giriş yapamayacaktır.`)) {
-                try {
-                    // Kullanıcıyı veritabanından sil
-                    await database.ref('users/' + userId).remove();
-                    
-                    showAlert('userAlert', 'Kullanıcı başarıyla silindi! Artık sisteme giriş yapamayacaktır.', 'success');
-                } catch (error) {
-                    showAlert('userAlert', 'Hata: ' + error.message, 'error');
-                }
+            if (confirm(`${email} kullanıcısını silmek istediğinize emin misiniz?`)) {
+                await database.ref('users/' + userId).remove();
+                showAlert('userAlert', 'Kullanıcı silindi.', 'success');
             }
         }
 
-        // ==================== BU KISIM DEĞİŞTİ - Add Part Fonksiyonu ====================
-        // Add Part fonksiyonunda validation değişti
+        // Add Part
         document.getElementById('addPartForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             const brand = document.getElementById('partBrand').value;
             const model = document.getElementById('partModel').value;
             const name = document.getElementById('partName').value;
-            const priceOriginal = parseFloat(document.getElementById('partPriceOriginal').value); // ZORUNLU
-            const priceEquivalent = parseFloat(document.getElementById('partPriceEquivalent').value) || null; // İSTEĞE BAĞLI
+            const priceOriginal = parseFloat(document.getElementById('partPriceOriginal').value);
+            const priceEquivalent = parseFloat(document.getElementById('partPriceEquivalent').value) || null;
 
             try {
-                const partData = {
-                    brand,
-                    model,
-                    name,
-                    priceOriginal, // ZORUNLU
-                    priceEquivalent, // İSTEĞE BAĞLI
-                    createdAt: Date.now()
-                };
-
-                await database.ref('parts').push(partData);
-
-                showAlert('partAlert', 'Parça başarıyla eklendi!', 'success');
+                await database.ref('parts').push({
+                    brand, model, name, priceOriginal, priceEquivalent, createdAt: Date.now()
+                });
+                showAlert('partAlert', 'Parça eklendi!', 'success');
                 document.getElementById('addPartForm').reset();
-                loadAdminPrices();
             } catch (error) {
                 showAlert('partAlert', 'Hata: ' + error.message, 'error');
             }
         });
-        // ==================== BU KISIM BİTTİ ====================
 
         // Load Admin Prices
         function loadAdminPrices() {
             database.ref('parts').on('value', snapshot => {
                 const tbody = document.getElementById('adminPricesList');
                 tbody.innerHTML = '';
-
                 snapshot.forEach(child => {
                     const part = child.val();
                     const row = tbody.insertRow();
-                    
-                    const priceEquivalent = part.priceEquivalent || null;
-                    const priceOriginal = part.priceOriginal; // ZORUNLU olduğu için her zaman var
-                    
-                    const originalPrice = priceOriginal ? `${priceOriginal.toFixed(2)} ₺` : '<span style="color: var(--text-gray);">-</span>';
-                    const equivalentPrice = priceEquivalent ? `${priceEquivalent.toFixed(2)} ₺` : '<span style="color: var(--text-gray);">-</span>';
-                    
+                    const orig = part.priceOriginal ? part.priceOriginal.toFixed(2) + ' ₺' : '-';
+                    const equiv = part.priceEquivalent ? part.priceEquivalent.toFixed(2) + ' ₺' : '-';
+
                     row.innerHTML = `
                         <td>${part.brand}</td>
                         <td>${part.model}</td>
                         <td>${part.name}</td>
-                        <td>${originalPrice}</td>
-                        <td>${equivalentPrice}</td>
+                        <td>${orig}</td>
+                        <td>${equiv}</td>
                         <td>
-                            <button class="btn btn-warning btn-small" onclick="editPart('${child.key}')">✏️ Düzenle</button>
-                            <button class="btn btn-danger btn-small" onclick="deletePart('${child.key}')">🗑️ Sil</button>
+                            <button onclick="editPart('${child.key}')" style="padding: 0.4rem; background: #f59e0b; border: none; border-radius: 0.3rem; margin-right: 0.5rem; cursor: pointer;">✏️</button>
+                            <button onclick="deletePart('${child.key}')" style="padding: 0.4rem; background: #991b1b; border: none; border-radius: 0.3rem; color: white; cursor: pointer;">🗑️</button>
                         </td>
                     `;
                 });
@@ -1364,29 +1677,17 @@
             database.ref('parts').on('value', snapshot => {
                 const tbody = document.getElementById('userPricesList');
                 tbody.innerHTML = '';
-
                 snapshot.forEach(child => {
                     const part = child.val();
                     const row = tbody.insertRow();
-                    
-                    const priceEquivalent = part.priceEquivalent || null;
-                    const priceOriginal = part.priceOriginal; // ZORUNLU olduğu için her zaman var
-                    
-                    const originalPrice = priceOriginal ? `${priceOriginal.toFixed(2)} ₺` : '<span style="color: var(--text-gray);">-</span>';
-                    const equivalentPrice = priceEquivalent ? `${priceEquivalent.toFixed(2)} ₺` : '<span style="color: var(--text-gray);">-</span>';
-                    
-                    row.innerHTML = `
-                        <td>${part.brand}</td>
-                        <td>${part.model}</td>
-                        <td>${part.name}</td>
-                        <td>${originalPrice}</td>
-                        <td>${equivalentPrice}</td>
-                    `;
+                    const orig = part.priceOriginal ? part.priceOriginal.toFixed(2) + ' ₺' : '-';
+                    const equiv = part.priceEquivalent ? part.priceEquivalent.toFixed(2) + ' ₺' : '-';
+                    row.innerHTML = `<td>${part.brand}</td><td>${part.model}</td><td>${part.name}</td><td>${orig}</td><td>${equiv}</td>`;
                 });
             });
         }
 
-        // Edit Part
+        // Edit/Delete Part Logic
         function editPart(key) {
             database.ref('parts/' + key).once('value', snapshot => {
                 const part = snapshot.val();
@@ -1395,283 +1696,225 @@
                     document.getElementById('editPartBrand').value = part.brand;
                     document.getElementById('editPartModel').value = part.model;
                     document.getElementById('editPartName').value = part.name;
-                    document.getElementById('editPartPriceOriginal').value = part.priceOriginal || '';
+                    document.getElementById('editPartPriceOriginal').value = part.priceOriginal;
                     document.getElementById('editPartPriceEquivalent').value = part.priceEquivalent || '';
-                    
-                    document.getElementById('editPartModal').classList.add('show');
+                    document.getElementById('editPartModal').style.display = 'flex';
                 }
             });
         }
-
-        // Close Edit Modal
         function closeEditModal() {
-            document.getElementById('editPartModal').classList.remove('show');
-            document.getElementById('editPartForm').reset();
+            document.getElementById('editPartModal').style.display = 'none';
         }
-
-        // ==================== BU KISIM DEĞİŞTİ - Edit Part Fonksiyonu ====================
-        // Edit Part fonksiyonunda validation değişti
         document.getElementById('editPartForm').addEventListener('submit', async (e) => {
             e.preventDefault();
-            
             const key = document.getElementById('editPartKey').value;
-            const brand = document.getElementById('editPartBrand').value;
-            const model = document.getElementById('editPartModel').value;
-            const name = document.getElementById('editPartName').value;
-            const priceOriginal = parseFloat(document.getElementById('editPartPriceOriginal').value); // ZORUNLU
-            const priceEquivalent = parseFloat(document.getElementById('editPartPriceEquivalent').value) || null; // İSTEĞE BAĞLI
-
-            try {
-                const updateData = {
-                    brand,
-                    model,
-                    name,
-                    priceOriginal, // ZORUNLU
-                    priceEquivalent, // İSTEĞE BAĞLI
-                    updatedAt: Date.now()
-                };
-
-                await database.ref('parts/' + key).update(updateData);
-                
-                showAlert('editPartAlert', 'Parça başarıyla güncellendi!', 'success');
-                setTimeout(() => {
-                    closeEditModal();
-                    loadAdminPrices();
-                }, 1500);
-                
-            } catch (error) {
-                showAlert('editPartAlert', 'Hata: ' + error.message, 'error');
-            }
+            const updateData = {
+                brand: document.getElementById('editPartBrand').value,
+                model: document.getElementById('editPartModel').value,
+                name: document.getElementById('editPartName').value,
+                priceOriginal: parseFloat(document.getElementById('editPartPriceOriginal').value),
+                priceEquivalent: parseFloat(document.getElementById('editPartPriceEquivalent').value) || null,
+                updatedAt: Date.now()
+            };
+            await database.ref('parts/' + key).update(updateData);
+            closeEditModal();
+            loadAdminPrices();
         });
-        // ==================== BU KISIM BİTTİ ====================
-
-        // Delete Part
         async function deletePart(key) {
-            if (confirm('Bu parçayı silmek istediğinizden emin misiniz?')) {
+            if (confirm('Silmek istiyor musunuz?')) {
                 await database.ref('parts/' + key).remove();
-                showAlert('partAlert', 'Parça silindi!', 'success');
             }
         }
 
-        // Load Brands for User
+        // Load Brands (User)
         function loadBrands() {
             database.ref('parts').on('value', snapshot => {
                 const brands = new Set();
-                snapshot.forEach(child => {
-                    brands.add(child.val().brand);
-                });
-
+                snapshot.forEach(child => brands.add(child.val().brand));
                 const select = document.getElementById('selectBrand');
                 select.innerHTML = '<option value="">-- Marka Seçin --</option>';
-                brands.forEach(brand => {
-                    const option = document.createElement('option');
-                    option.value = brand;
-                    option.textContent = brand;
-                    select.appendChild(option);
+                brands.forEach(b => {
+                    const opt = document.createElement('option');
+                    opt.value = b; opt.textContent = b;
+                    select.appendChild(opt);
                 });
             });
         }
 
-        // Brand Selection
-        document.getElementById('selectBrand').addEventListener('change', function() {
+        document.getElementById('selectBrand').addEventListener('change', function () {
             const brand = this.value;
+            const modelGroup = document.getElementById('modelGroup');
+            const modelSelect = document.getElementById('selectModel');
+
             if (!brand) {
-                document.getElementById('modelGroup').style.display = 'none';
-                document.getElementById('partsGroup').style.display = 'none';
-                document.getElementById('calculateBtn').style.display = 'none';
-                document.getElementById('priceResult').style.display = 'none';
+                modelGroup.style.display = 'none';
                 return;
             }
 
             database.ref('parts').once('value', snapshot => {
                 const models = new Set();
                 snapshot.forEach(child => {
-                    const part = child.val();
-                    if (part.brand.toLowerCase() === brand.toLowerCase()) {
-                        models.add(part.model);
-                    }
+                    if (child.val().brand === brand) models.add(child.val().model);
                 });
-
-                const select = document.getElementById('selectModel');
-                select.innerHTML = '<option value="">-- Model Seçin --</option>';
-                models.forEach(model => {
-                    const option = document.createElement('option');
-                    option.value = model;
-                    option.textContent = model;
-                    select.appendChild(option);
+                modelSelect.innerHTML = '<option value="">-- Model Seçin --</option>';
+                models.forEach(m => {
+                    const opt = document.createElement('option');
+                    opt.value = m; opt.textContent = m;
+                    modelSelect.appendChild(opt);
                 });
-
-                document.getElementById('modelGroup').style.display = 'block';
+                modelGroup.style.display = 'block';
                 document.getElementById('partsGroup').style.display = 'none';
                 document.getElementById('calculateBtn').style.display = 'none';
                 document.getElementById('priceResult').style.display = 'none';
             });
         });
 
-        // ==================== BU KISIM DEĞİŞTİ - Model Selection ====================
-        // Model selection kısmında parça listesi gösterimi değişti
-        document.getElementById('selectModel').addEventListener('change', function() {
+        document.getElementById('selectModel').addEventListener('change', function () {
             const brand = document.getElementById('selectBrand').value;
             const model = this.value;
-            
+            const partsGroup = document.getElementById('partsGroup');
+            const partsList = document.getElementById('partsList');
+
             if (!model) {
-                document.getElementById('partsGroup').style.display = 'none';
-                document.getElementById('calculateBtn').style.display = 'none';
-                document.getElementById('priceResult').style.display = 'none';
+                partsGroup.style.display = 'none';
                 return;
             }
 
             database.ref('parts').once('value', snapshot => {
-                const parts = [];
+                partsList.innerHTML = '';
                 snapshot.forEach(child => {
-                    const part = child.val();
-                    if (part.brand.toLowerCase() === brand.toLowerCase() && 
-                        part.model.toLowerCase() === model.toLowerCase()) {
-                        parts.push({ key: child.key, ...part });
-                    }
-                });
-
-                const container = document.getElementById('partsList');
-                container.innerHTML = '';
-                parts.forEach(part => {
-                    const priceEquivalent = part.priceEquivalent || null;
-                    const priceOriginal = part.priceOriginal; // ZORUNLU olduğu için her zaman var
-                    
-                    // ÖNCE ORİJİNALİ GÖSTER (ZORUNLU)
-                    const divOriginal = document.createElement('div');
-                    divOriginal.className = 'checkbox-item';
-                    divOriginal.innerHTML = `
-                        <input type="checkbox" id="part_${part.key}_original" value="${part.key}_original" data-price="${priceOriginal}" data-type="original" onchange="validatePartSelection()">
-                        <label for="part_${part.key}_original" style="margin: 0; cursor: pointer; flex: 1;">
-                            ${part.name} - <strong style="color: #16a34a;">🟢 Orijinal:</strong> ${priceOriginal.toFixed(2)} ₺
-                        </label>
-                    `;
-                    container.appendChild(divOriginal);
-                    
-                    // SONRA MUADİLİ GÖSTER (VARSA)
-                    if (priceEquivalent) {
-                        const divEquivalent = document.createElement('div');
-                        divEquivalent.className = 'checkbox-item';
-                        divEquivalent.innerHTML = `
-                            <input type="checkbox" id="part_${part.key}_equivalent" value="${part.key}_equivalent" data-price="${priceEquivalent}" data-type="equivalent" onchange="validatePartSelection()">
-                            <label for="part_${part.key}_equivalent" style="margin: 0; cursor: pointer; flex: 1;">
-                                ${part.name} - <strong style="color: #f59e0b;">🟡 Muadil:</strong> ${priceEquivalent.toFixed(2)} ₺
-                            </label>
+                    const p = child.val();
+                    if (p.brand === brand && p.model === model) {
+                        // Original
+                        const divO = document.createElement('div');
+                        divO.className = 'checkbox-item';
+                        divO.style.cssText = "display: flex; align-items: center; padding: 0.8rem; background: #0f0f0f; border: 1px solid #333; border-radius: 0.5rem;";
+                        divO.innerHTML = `
+                            <input type="checkbox" id="p_${child.key}_orig" value="${child.key}_orig" data-price="${p.priceOriginal}" data-type="original" onchange="validatePartSelection()" style="margin-right: 1rem; width: 20px; height: 20px;">
+                            <label for="p_${child.key}_orig" style="flex:1; cursor:pointer;">${p.name} - <strong style="color:#16a34a">Orijinal:</strong> ${p.priceOriginal} ₺</label>
                         `;
-                        container.appendChild(divEquivalent);
+                        partsList.appendChild(divO);
+
+                        // Equivalent
+                        if (p.priceEquivalent) {
+                            const divE = document.createElement('div');
+                            divE.className = 'checkbox-item';
+                            divE.style.cssText = "display: flex; align-items: center; padding: 0.8rem; background: #0f0f0f; border: 1px solid #333; border-radius: 0.5rem;";
+                            divE.innerHTML = `
+                                <input type="checkbox" id="p_${child.key}_eq" value="${child.key}_eq" data-price="${p.priceEquivalent}" data-type="equivalent" onchange="validatePartSelection()" style="margin-right: 1rem; width: 20px; height: 20px;">
+                                <label for="p_${child.key}_eq" style="flex:1; cursor:pointer;">${p.name} - <strong style="color:#f59e0b">Muadil:</strong> ${p.priceEquivalent} ₺</label>
+                            `;
+                            partsList.appendChild(divE);
+                        }
                     }
                 });
-
-                document.getElementById('partsGroup').style.display = 'block';
+                partsGroup.style.display = 'block';
                 document.getElementById('calculateBtn').style.display = 'block';
                 document.getElementById('priceResult').style.display = 'none';
             });
         });
-        // ==================== BU KISIM BİTTİ ====================
 
-        // ==================== BU KISIM DEĞİŞTİ - Validate Part Selection ====================
-        // Parça seçim validasyonu değişti
         function validatePartSelection() {
             const checkboxes = document.querySelectorAll('#partsList input[type="checkbox"]');
-            const checked = Array.from(checkboxes).filter(cb => cb.checked);
-            
-            // Aynı parçanın hem orijinal hem muadilini seçmeyi engelle
-            const usedParts = new Set();
-            
-            checked.forEach(cb => {
-                const partKey = cb.value.split('_')[1]; // part_key_original -> key'i al
-                const type = cb.getAttribute('data-type');
-                
-                if (type === 'original') {
-                    // Orijinal seçilmişse, aynı parçanın muadilini disable et
-                    checkboxes.forEach(otherCb => {
-                        const otherPartKey = otherCb.value.split('_')[1];
-                        const otherType = otherCb.getAttribute('data-type');
-                        if (otherPartKey === partKey && otherType === 'equivalent' && !otherCb.checked) {
-                            otherCb.disabled = true;
-                        }
-                    });
+            const checked = Array.from(checkboxes).filter(c => c.checked);
+
+            // Aynı parçanın hem orijinal hem muadil seçimini engelle
+            const usedKeys = new Set();
+            checked.forEach(c => {
+                // value format: key_type (örn: abc123_orig)
+                const key = c.value.split('_')[0];
+                usedKeys.add(key);
+            });
+
+            checkboxes.forEach(c => {
+                const key = c.value.split('_')[0];
+                const type = c.getAttribute('data-type');
+
+                // Eğer bu parçanın diğer tipi seçiliyse ve kendisi seçili değilse disable et
+                const isOtherTypeSelected = Array.from(checkboxes).some(oc =>
+                    oc.checked && oc.value.split('_')[0] === key && oc !== c
+                );
+
+                if (isOtherTypeSelected && !c.checked) {
+                    c.disabled = true;
+                } else if (checked.length >= 3 && !c.checked) {
+                    c.disabled = true;
+                } else {
+                    c.disabled = false;
                 }
             });
-            
-            if (checked.length > 3) {
-                checkboxes.forEach(cb => {
-                    if (!cb.checked) cb.disabled = true;
-                });
-            } else {
-                checkboxes.forEach(cb => {
-                    const partKey = cb.value.split('_')[1];
-                    const type = cb.getAttribute('data-type');
-                    const isOriginalChecked = Array.from(checkboxes).some(checkedCb => 
-                        checkedCb.checked && 
-                        checkedCb.value.split('_')[1] === partKey && 
-                        checkedCb.getAttribute('data-type') === 'original'
-                    );
-                    
-                    // Eğer orijinal seçilmişse ve bu muadil ise disable kal, diğer durumlarda enable et
-                    if (isOriginalChecked && type === 'equivalent') {
-                        cb.disabled = true;
-                    } else if (!cb.checked) {
-                        cb.disabled = false;
-                    }
-                });
-            }
         }
-        // ==================== BU KISIM BİTTİ ====================
 
-        // ==================== BU KISIM DEĞİŞTİ - Fiyat Hesaplama Mantığı ====================
-        // Fiyat hesaplama mantığı değişti - önce orijinal, yoksa muadil kullan
-        document.getElementById('calculateBtn').addEventListener('click', async function() {
-            const checkboxes = document.querySelectorAll('#partsList input[type="checkbox"]:checked');
-            
-            if (checkboxes.length === 0) {
-                showAlert('userAlert', 'Lütfen en az 1 parça seçin!', 'error');
+        // Calculate Price
+        document.getElementById('calculateBtn').addEventListener('click', async function () {
+            const checked = document.querySelectorAll('#partsList input[type="checkbox"]:checked');
+            if (checked.length === 0) {
+                showAlert('userAlert', 'En az 1 parça seçiniz.', 'error');
                 return;
             }
 
             let total = 0;
             const breakdown = [];
-            const usedParts = new Set(); // Aynı parçanın hem orijinal hem muadilini seçmesini engelle
 
-            checkboxes.forEach(cb => {
-                const partKey = cb.value.split('_')[1]; // part_key_original -> key'i al
-                const type = cb.getAttribute('data-type');
-                const price = parseFloat(cb.getAttribute('data-price'));
-                const label = cb.nextElementSibling.textContent.trim();
-                
-                // Eğer bu parçanın başka versiyonu seçilmişse, bu checkbox'ı atla
-                if (usedParts.has(partKey)) {
-                    return;
-                }
-                
-                // Orijinal seçilmişse, muadilini engelle
-                if (type === 'original') {
-                    usedParts.add(partKey);
-                }
-                
+            checked.forEach(c => {
+                const price = parseFloat(c.getAttribute('data-price'));
+                const label = c.nextElementSibling.textContent;
                 total += price;
                 breakdown.push({ name: label, price: price });
             });
 
             document.getElementById('totalPrice').textContent = total.toFixed(2) + ' ₺';
-            
-            const detailsDiv = document.getElementById('priceBreakdown');
-            detailsDiv.innerHTML = breakdown.map(item => `
-                <div class="price-item">
-                    <span>${item.name}</span>
-                    <span>${item.price.toFixed(2)} ₺</span>
+            document.getElementById('priceBreakdown').innerHTML = breakdown.map(b => `
+                <div style="display:flex; justify-content:space-between; margin-top:0.5rem;">
+                    <span>${b.name}</span><span>${b.price.toFixed(2)} ₺</span>
                 </div>
             `).join('');
 
+            // Hesaplama logunu kaydet
+            const brand = document.getElementById('selectBrand').value;
+            const model = document.getElementById('selectModel').value;
+
+            // Parça isimlerini temizle (sadece parça adını al, fiyat bilgisini çıkar)
+            const partsInfo = breakdown.map(b => {
+                const partName = b.name.split(' - ')[0].trim();
+                const partType = b.name.includes('Orijinal') ? 'Orijinal' : 'Muadil';
+                return `${partName} (${partType})`;
+            });
+
+            const calcLogData = {
+                category: 'CALCULATION',
+                action: 'Fiyat Hesaplandı',
+                userEmail: currentUser.email,
+                userId: currentUser.uid,
+                details: {
+                    brand: brand,
+                    model: model,
+                    parts: partsInfo.join(', '),
+                    partCount: breakdown.length,
+                    totalPrice: parseFloat(total.toFixed(2))
+                },
+                timestamp: firebase.database.ServerValue.TIMESTAMP
+            };
+
+            try {
+                const result = await database.ref('system_logs').push(calcLogData);
+                console.log('✅ Fiyat hesaplama logu kaydedildi:', {
+                    user: currentUser.email,
+                    brand: brand,
+                    model: model,
+                    parts: partsInfo.join(', '),
+                    total: total.toFixed(2) + ' ₺'
+                });
+            } catch (error) {
+                console.error('❌ Fiyat hesaplama logu hatası:', error);
+            }
+
             document.getElementById('priceResult').style.display = 'block';
         });
-        // ==================== BU KISIM BİTTİ ====================
-
-        // Contact Form Submit
-        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+        // Contact Form
+        document.getElementById('contactForm').addEventListener('submit', async function (e) {
             e.preventDefault();
-            
-            const contactData = {
+            const data = {
                 name: document.getElementById('contactName').value,
                 email: document.getElementById('contactEmail').value,
                 phone: document.getElementById('contactPhone').value,
@@ -1679,21 +1922,13 @@
                 message: document.getElementById('contactMessage').value,
                 userId: currentUser.uid,
                 userEmail: currentUser.email,
-                timestamp: Date.now(),
-                createdAt: new Date().toLocaleString('tr-TR')
+                timestamp: Date.now()
             };
-
-            try {
-                await database.ref('contacts').push(contactData);
-                showAlert('contactAlert', 'Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapacağız.', 'success');
-                document.getElementById('contactForm').reset();
-            } catch (error) {
-                showAlert('contactAlert', 'Hata: ' + error.message, 'error');
-            }
+            await database.ref('contacts').push(data);
+            showAlert('contactAlert', 'Mesaj gönderildi.', 'success');
+            this.reset();
         });
     </script>
 </body>
+
 </html>
-
-
-
